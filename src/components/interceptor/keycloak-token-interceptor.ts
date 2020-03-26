@@ -62,16 +62,21 @@ export class KeycloakTokenInterceptor extends HttpInterceptorBase {
 
     if (this.keycloak && this.keycloak.token) {
       let deferred = this.$q.defer();
-      this.keycloak.updateToken(5).success(() => {
-        config.headers = config.headers || {};
-        config.headers.Authorization = 'Bearer ' + this.keycloak.token;
-        deferred.resolve(config);
-      }).error(() => {
-        this.$log.log('token refresh failed :' + config.url);
-        deferred.reject('Failed to refresh token');
-        window.sessionStorage.setItem('oidcDashboardRedirectUrl', location.href);
-        this.keycloak.login();
-      });
+      // this.keycloak.updateToken(5).success(() => {
+      //   config.headers = config.headers || {};
+      //   config.headers.Authorization = 'Bearer ' + this.keycloak.token;
+      //   deferred.resolve(config);
+      // }).error(() => {
+      //   this.$log.log('token refresh failed :' + config.url);
+      //   deferred.reject('Failed to refresh token');
+      //   window.sessionStorage.setItem('oidcDashboardRedirectUrl', location.href);
+      //   this.keycloak.login();
+      // });
+
+      this.keycloak.token = "eyJhbGciOiJSUzI1NiIsImtpZCI6IkVEemlwQkdQUnQzbW9wRVdac2YtajJ6NThHYXQteWtoeWJ5QTRnT2hMSDAifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJjcnciLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlY3JldC5uYW1lIjoid29ya3Nob3AtdXNlci10b2tlbi1iNTUycSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJ3b3Jrc2hvcC11c2VyIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiMDRlMWRmYzAtNDhiYS00M2NkLTg4NzYtMjA0MzEyZWZmMWE3Iiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50OmNydzp3b3Jrc2hvcC11c2VyIn0.f9uonPzfHBC3XZ8cSpaBq0yuoD8m4IZFOS7ullN764D9OMG-Pv7EROJ6AiBycI2E2q28a9LCGpDLFFqv7C8GF5N9eZGtNkpHYf3223O_RIA_2hCFHp1_xnBFSk0SHQ__8vFvkoVgRuvxUrTOtPdUHq1RDLE-oVxzaNZtgmyPyh6pqqsy9sh_CnpLDa1irbBD1IHVvLVzNY2YDjp6XIHSn9am2qf4YxEoTnbVunGMtgUP5_j_bhSrcerJMevnm6kfBKgH0kyudpWW9sLphMVcdiHubxhRRDy3MPfcDgWKZEVx58bt-NfdxL2FVRLlyD6TORtYxYaN9eVPUjZYk0dy9g";
+      config.headers = config.headers || {};
+      config.headers.Authorization = 'Bearer ' + this.keycloak.token;
+      deferred.resolve(config);
       return deferred.promise;
     }
     return config || this.$q.when(config);

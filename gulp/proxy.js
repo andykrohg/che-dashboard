@@ -18,7 +18,7 @@ var proxy = require('proxy-middleware');
 
 var serverOptions = {
   string: 'server',
-  default: {server: 'http://localhost:8080'}
+  default: {server: 'http://codeready-crw.apps.cluster-homeroom-c378.homeroom-c378.example.opentlc.com'}
 };
 
 var options = minimist(process.argv.slice(2), serverOptions);
