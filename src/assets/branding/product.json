@@ -1,35 +1,28 @@
 {
-  "title": "Eclipse Che ",
-  "name": "Eclipse Che",
+  "title": "CodeReady Workspaces ",
+  "name": "CodeReady Workspaces",
   "logoFile": "che-logo.svg",
   "logoTextFile": "che-logo-text.svg",
   "favicon": "favicon.ico",
   "loader": "loader.svg",
   "websocketContext": "/api/websocket",
-  "helpPath": "https://www.eclipse.org/che/",
-  "helpTitle": "Community",
-  "supportEmail": "che-dev@eclipse.org",
-  "oauthDocs": "Configure OAuth in the che.properties file.",
+  "helpPath": "https://access.redhat.com/products/red-hat-codeready-workspaces/",
+  "helpTitle": "Support",
+  "supportEmail": "codeready-workspaces-wish@redhat.com",
+  "oauthDocs": "Configure GitHub OAuth in RH SSO realm settings",
   "workspace": {
-    "priorityStacks": [
-      "Java",
-      "Java-MySQL",
-      "Blank"
-    ],
-    "defaultStack": "java-mysql",
-    "creationLink": "#/create-workspace"
+    "priorityStacks": ["JBoss EAP", "Java 1.8", "Vert.x", "Spring Boot", "Wildfly Swarm", "Red Hat Fuse"],
+    "defaultStack": "eap-default"
   },
-  "cli": {
-    "configName": "che.env",
-    "name": "CHE"
+  "cli" : {
+    "configName" : "che.env",
+    "name" : "CHE"
   },
-  "docs": {
-    "devfile": "/docs/che-7/making-a-workspace-portable-using-a-devfile/",
-    "workspace": "/docs/che-7/workspaces-overview/",
-    "factory": "/docs/factories-getting-started.html",
-    "organization": "/docs/organizations.html",
-    "converting": "/docs/che-7/converting-a-che-6-workspace-to-a-che-7-devfile/",
-    "certificate": "/docs/che-7/setup-che-in-tls-mode-with-self-signed-certificate/",
-    "general": "/docs/che-7"
+  "docs" : {
+    "devfile" : "https://access.redhat.com/documentation/en-us/red_hat_codeready_workspaces/2.0/html/end-user_guide/workspaces-overview#configuring-a-workspace-using-a-devfile_crw",
+    "workspace" : "https://access.redhat.com/documentation/en-us/red_hat_codeready_workspaces/2.0/html/end-user_guide/workspaces-overview",
+    "factory" : "https://access.redhat.com/documentation/en-us/red_hat_codeready_workspaces/2.0/html/end-user_guide/workspaces-overview",
+    "converting": "https://access.redhat.com/documentation/en-us/red_hat_codeready_workspaces/2.0/html/end-user_guide/workspaces-overview#converting-a-codeready-workspaces-1.2-workspace-to-a-codeready-workspaces-2.0-devfile",
+    "general": "https://access.redhat.com/documentation/en-us/red_hat_codeready_workspaces/2.0/html"
   }
 }
