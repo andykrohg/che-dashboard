@@ -166,16 +166,17 @@ export class CheJsonRpcMasterApi {
   private refreshToken(): ng.IPromise<void> {
     const defer = this.$q.defer<void>();
 
-    if (this.cheKeycloak.isPresent()) {
-      this.cheKeycloak.keycloak.updateToken(5).success(() => {
-        defer.resolve();
-      }).error(() => {
-        this.$log.warn('Failed to refresh token.');
-        defer.resolve();
-      });
-    } else {
-      defer.resolve();
-    }
+    // if (this.cheKeycloak.isPresent()) {
+    //   this.cheKeycloak.keycloak.updateToken(5).success(() => {
+    //     defer.resolve();
+    //   }).error(() => {
+    //     this.$log.warn('Failed to refresh token.');
+    //     defer.resolve();
+    //   });
+    // } else {
+    //   defer.resolve();
+    // }
+    defer.resolve();
     return defer.promise;
   }
 

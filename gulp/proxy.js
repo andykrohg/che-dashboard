@@ -23,7 +23,7 @@ var serverOptions = {
 
 var options = minimist(process.argv.slice(2), serverOptions);
 
-var patterns = ['/api', '/ext', '/ws', '/datasource', '/java-ca', '/im', '/che', '/admin', '/workspace-loader'];
+var patterns = ['/api', '/ext', '/ws', '/datasource', '/java-ca', '/im', '/che', '/admin', '/workspace-loader', '/ide'];
 
 var proxies = [];
 
@@ -39,12 +39,17 @@ patterns.forEach(function(pattern) {
     proxyOptions.route = '/ext';
   } else if (pattern === '/workspace-loader') {
     proxyOptions.route = '/workspace-loader';
+  } else if (pattern === '/ide') {
+    proxyOptions.route = '/ide';
   } else {
     proxyOptions.route = '/api';
   }
   proxyOptions.preserveHost = false;
   proxyOptions.rejectUnauthorized = false;
   proxyOptions.secure = false;
+  proxyOptions.headers = {
+    Authorization: `Bearer ${process.env.AUTH_TOKEN}`
+  };
   proxies.push(proxy(proxyOptions));
 
 });

@@ -170,7 +170,7 @@ class IdeSvc {
       }
       this.ideParams.clear();
     }
-
+    
     // perform remove of iframes in parent node. It's needed to avoid any script execution (canceled requests) on iframe source changes.
     let iframeParent = angular.element('#ide-application-frame');
     iframeParent.find('iframe').remove();
@@ -180,6 +180,8 @@ class IdeSvc {
     } else {
       (this.$rootScope as any).ideIframeLink = ideUrlLink + appendUrl;
     }
+
+    alert(ideUrlLink + appendUrl);
 
     // iframe element for IDE application:
     let iframeElement = '<iframe class=\"ide-page-frame\" id=\"ide-application-iframe\" ng-src=\"{{ideIframeLink}}\" ></iframe>';
