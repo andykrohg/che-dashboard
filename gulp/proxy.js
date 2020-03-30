@@ -18,7 +18,7 @@ var proxy = require('proxy-middleware');
 
 var serverOptions = {
   string: 'server',
-  default: {server: 'http://codeready-crw.apps.cluster-homeroom-c378.homeroom-c378.example.opentlc.com'}
+  default: {server: process.env.SERVER_URL}
 };
 
 var options = minimist(process.argv.slice(2), serverOptions);
@@ -55,7 +55,7 @@ patterns.forEach(function(pattern) {
     Authorization: `Bearer ${process.env.AUTH_TOKEN}`
   };
   proxies.push(proxy(proxyOptions));
-  
+
 });
 
 console.log('Using remote Che server', options.server);
