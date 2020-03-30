@@ -43,6 +43,10 @@ patterns.forEach(function(pattern) {
     proxyOptions.route = '/ide';
   } else {
     proxyOptions.route = '/api';
+    proxyOptions.ws = true;
+    proxyOptions.pathRewrite = {
+      '/api/websocket$': `/api/websocket?token=${process.env.AUTH_TOKEN}`
+    };
   }
   proxyOptions.preserveHost = false;
   proxyOptions.rejectUnauthorized = false;
@@ -51,7 +55,7 @@ patterns.forEach(function(pattern) {
     Authorization: `Bearer ${process.env.AUTH_TOKEN}`
   };
   proxies.push(proxy(proxyOptions));
-
+  
 });
 
 console.log('Using remote Che server', options.server);

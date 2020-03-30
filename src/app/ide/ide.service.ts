@@ -181,8 +181,6 @@ class IdeSvc {
       (this.$rootScope as any).ideIframeLink = ideUrlLink + appendUrl;
     }
 
-    alert(ideUrlLink + appendUrl);
-
     // iframe element for IDE application:
     let iframeElement = '<iframe class=\"ide-page-frame\" id=\"ide-application-iframe\" ng-src=\"{{ideIframeLink}}\" ></iframe>';
     this.cheUIElementsInjectorService.injectAdditionalElement(iframeParent, iframeElement);
