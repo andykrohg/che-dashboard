@@ -24,7 +24,7 @@ var minimist = require('minimist');
 
 var serverOptions = {
   string: 'server',
-  default: { server: 'http://localhost:8080' }
+  default: { server: process.env.DASHBOARD_URL }
 };
 
 var options = minimist(process.argv.slice(2), serverOptions);

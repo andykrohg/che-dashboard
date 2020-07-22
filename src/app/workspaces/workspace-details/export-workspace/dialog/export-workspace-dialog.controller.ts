@@ -157,16 +157,13 @@ export class ExportWorkspaceDialogController {
   exportToPrivateCloud() {
     this.exportInCloudSteps = '';
     this.importInProgress = true;
-    let login = this.cheRemote.newAuth(this.privateCloudUrl, this.privateCloudLogin, this.privateCloudPassword);
+    // let login = this.cheRemote.newAuth(this.privateCloudUrl, this.privateCloudLogin, this.privateCloudPassword);
 
-    login.then((authData: any) => {
+    
       let copyOfConfig = angular.copy(this.copyOfConfig);
       copyOfConfig.name = 'import-' + copyOfConfig.name;
-      this.exportToPrivateCloudWorkspace(copyOfConfig, authData);
+      this.exportToPrivateCloudWorkspace(copyOfConfig, null);
       // get content of the recipe
-    }, (error: any) => {
-      this.handleError(error);
-    });
   }
 
   /**
