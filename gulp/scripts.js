@@ -110,7 +110,7 @@ function webpackWrapper(watch, test, callback) {
 
     if (!watch && stats.hasErrors()) {
       $.util.log($.util.colors.red('[Webpack task failed with errors]'));
-      process.exit(1);
+      // process.exit(1);
     }
 
     if (watch && !callbackCalled) {
